@@ -12,9 +12,32 @@ namespace Week10_lab
 {
     public partial class Form1 : Form
     {
-        public Form1()
+        public Form1(int number)
         {
             InitializeComponent();
+            label1.Text = number.ToString();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int currentIndex = Convert.ToInt32(label1.Text);
+            Program.NavigateTo(currentIndex - 1);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            int currentIndex = Convert.ToInt32(label1.Text);
+            Program.NavigateTo(currentIndex + 1);
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
